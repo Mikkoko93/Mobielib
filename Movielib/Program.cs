@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using Movielib.Controllers;
+using Movielib.Entities;
 
 namespace Movielib
 {
@@ -6,7 +9,15 @@ namespace Movielib
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+            MovieController mc = new MovieController();
+            //mc.AddDummyMovies();
+            mc.AddMovie("The Hobbit", "Adventure", 147);
+            List<Movie> movies = mc.GetMovies();
+            foreach (Movie movie in movies)
+            {
+                Console.WriteLine(movie.Name);
+            }
         }
     }
 }
