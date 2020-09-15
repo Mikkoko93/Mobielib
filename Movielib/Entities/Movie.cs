@@ -10,5 +10,15 @@ namespace Movielib.Entities
         public string Name { get; set; }
         public string Description { get; set; }
         public int Length { get; set; }
+
+        public Movie(int id, string name, string desc, int lenght)
+        {
+            this.Id = id;
+            this.Name = name;
+            this.Description = desc;
+            this.Length = lenght;
+
+        }
+
     }
 }

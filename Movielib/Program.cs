@@ -11,13 +11,41 @@ namespace Movielib
         {
 
             MovieController mc = new MovieController();
-            //mc.AddDummyMovies();
-            mc.AddMovie("The Hobbit", "Adventure", 147);
+
+            //MovieController controller = new MovieController();
+            AppStart appStart = new AppStart(mc);
+            appStart.Start();
+
+            /*//mc.AddDummyMovies();
+            // mc.AddMovie("The Hobbit", "Adventure", 147);
             List<Movie> movies = mc.GetMovies();
-            foreach (Movie movie in movies)
+            while (true)
             {
-                Console.WriteLine(movie.Name);
-            }
+                string c = Console.ReadLine();
+                switch (c)
+                {
+                    case "1":
+                        Console.WriteLine("name of the Movie");
+                        string name = Console.ReadLine();
+                        Console.WriteLine("description:");
+                        string description = Console.ReadLine();
+                        Console.WriteLine("Length of the movie");
+                        Int32.TryParse(Console.ReadLine(), out int length);
+                        mc.AddMovie(name, description, length);
+                        Console.WriteLine("Movie added");
+                        break;
+                    case "2":
+                        foreach (Movie movie in movies)
+                        {
+                            Console.WriteLine(movie.Name);
+                        }
+                        break;
+                }
+                    
+            }*/
+
+
+
         }
     }
 }
