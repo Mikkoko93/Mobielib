@@ -15,7 +15,7 @@ namespace Movielib.Controllers
     {
         private string db = @"C:\Users\mikko\source\repos\Movielib\db.json";
         private string json = File.ReadAllText(@"C:\Users\mikko\source\repos\Movielib\db.json");
-        public int id = 2;
+        //public int id = 2;
        
 
         public List<Movie> GetMovies()
@@ -33,7 +33,7 @@ namespace Movielib.Controllers
             List<Movie> movies = GetMovies();
             //id++;
 
-            Movie newMovie = new Movie {movies.Count , name, description , length };
+            Movie newMovie = new Movie (movies.Count , name, description , length );
             movies.Add(newMovie);
             UpdateMoviedb(movies);
 
@@ -43,9 +43,9 @@ namespace Movielib.Controllers
         {
             List<Movie> myMovies = GetMovies();
 
-            Movie interstellar = new Movie { myMovies.Count, Name = "Interstellar", Description = "Sci-Fi", Length = 169 };
+            Movie interstellar = new Movie ( 1,  "Interstellar",  "Sci-Fi", 169 );
             myMovies.Add(interstellar);
-            Movie testMovie = new Movie { myMovies.Count , Name = "TestMovie", Description = "Adventure", Length = 122 };
+            Movie testMovie = new Movie ( 2 , "TestMovie", "Adventure", 122 );
             myMovies.Add(testMovie);
 
             UpdateMoviedb(myMovies);
@@ -56,8 +56,7 @@ namespace Movielib.Controllers
             List<Movie> myMovies = GetMovies();
 
             myMovies.Remove(myMovies.First(movie => movie.Id == id));
-            //Update id to correspond with list length to make sure movies created
-            //after a removal will receive an unique id
+
             myMovies.ForEach(movie => movie.Id = myMovies.IndexOf(movie));
             UpdateMoviedb(myMovies);
         }
